@@ -1,15 +1,23 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import "./main.css";
+import React from "react";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Dashboard from "./components/Dashboard";
+import Register from "./components/Register";
+import LocomotiveScroll from "locomotive-scroll";
 
 function App() {
-  const [message, setMessage] = useState("");
+  const locomotiveScroll = new LocomotiveScroll();
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/auth/api").then((res) => setMessage(res.data.message));
-  }, []);
-
-  return <h1 className="bg-red-500 font-black flex justify-center ">{message}</h1>;
+  return (<Router>
+    <Routes>
+      <Route path="/" element={<Login />}/>
+      <Route path="/register" element={<Register />}/>
+      <Route path="/home" element={<Home />}/>
+      <Route path="/dashboard" element={<Dashboard />}/>
+    </Routes>
+  </Router>);
 }
 
 export default App;
