@@ -15,7 +15,7 @@ function Login() {
             const response = await axios.post("http://localhost:1111/auth/login", { email, password});
             console.log("Response:", response.data);
             if (response.data.success) {  // Check if API returns success
-              navigate("/home");
+              navigate("/");
           } else {
               setMessage(response.data.message);
           }

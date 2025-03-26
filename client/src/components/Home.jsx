@@ -8,6 +8,7 @@ function Home() {
     <div>
       <Header />
       <Body />
+      
       {/* <Footer />2 */}
     </div>
   )
