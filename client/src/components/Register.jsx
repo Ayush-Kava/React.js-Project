@@ -8,13 +8,13 @@ function Register() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:1111/auth/register", {firstname, email, password});
+      const response = await axios.post("http://localhost:1111/auth/register",{firstname, email, password});
       console.log("Response:", response.data);
       if (response.data.success) {
-        navigate("/");
+        navigate("/login");
       } else {
         alert("Register failed! Invalid credentials.");
       }
@@ -45,7 +45,7 @@ function Register() {
             Submit
           </button>
 
-          <Link to="/" className="text-gray-600 mt-3.5 hover:text-gray-400 transition-all duration-300">
+          <Link to="/login" className="text-gray-600 mt-3.5 hover:text-gray-400 transition-all duration-300">
             Already have account!
           </Link>
         </div>

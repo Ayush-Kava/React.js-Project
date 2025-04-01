@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import{ useNavigate, Link } from "react-router-dom";
+import Cookies from "js-cookie";
+import api from "../api";
 import axios from "axios"
 import "../main.css";
 
@@ -12,9 +14,9 @@ function Login() {
     const handleSubmit = async (e)=>{
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:1111/auth/login", { email, password});
+            const response = await api.post("/auth/login", { email, password});
             console.log("Response:", response.data);
-            if (response.data.success) {  // Check if API returns success
+            if (response.data.success) { 
               navigate("/");
           } else {
               setMessage(response.data.message);

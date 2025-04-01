@@ -1,24 +1,29 @@
 const express = require("express");
 const router = express.Router();
-
+const authenticateUser  = require("../middlewares/authMiddleware");
 const { propertyModel } = require("../models/property-model");
 
-router.get("/data", async (req, res) => {
+router.get("/data",authenticateUser, async (req, res) => {
     const page = parseInt(req.query.page) || 1; // Default page is 1
     const limit = 10; // Max 10 properties per page
+    const maxPrice = req.query.search ? req.query.search : Infinity;
+    const filter = maxPrice !== Infinity ? { price: { $lte: maxPrice } } : {};
+
     const skip = (page - 1) * limit;
 
-    const total = await propertyModel.countDocuments(); // Get total count
-    const allData = await propertyModel.find().skip(skip).limit(limit);
-
+    const total = await propertyModel.countDocuments(filter); // Get total count
+    const data = await propertyModel.find(filter).skip(skip).limit(limit);
+    if(maxPrice != Infinity){
+        data.sort((a, b) =>  b.price - a.price )
+    }
     res.json({
-        data: allData,
+        data: data,
         totalPages: Math.ceil(total / limit),
         currentPage: page
     });
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id",authenticateUser , async (req, res) => {
     try {
         const propertyData = await propertyModel.findById(req.params.id);
         if (!propertyData) {
