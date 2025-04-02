@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import api from "../api";
+import Loader from "./Loader"
 
 function Body({searchQuery}) {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function Body({searchQuery}) {
         setTotalPages(response.data.totalPages || 1);
         setTimeout(() => {
           setLoading(false);
-        }, 5000);
+        }, 1000);
       } catch (error) {
         console.error("Error fetching property data:", error);
         if (error.response && error.response.status === 401) {
@@ -48,8 +49,7 @@ function Body({searchQuery}) {
         <div>
           {
             loading
-              ? (<div className="text-center text-2xl text-white">Loading...</div>)
-              : (propertys.map((property, index) => (<PropertyCard key={index} property={property}/>)))
+              ? <Loader /> : (propertys.map((property, index) => (<PropertyCard key={index} property={property}/>)))
           }
           <div className="pagination mx-auto mt-5 text-center">
             {

@@ -28,8 +28,8 @@ function Login() {
     
   return (
   
-  <div className="h-screen w-full bg-neutral-800 flex justify-center items-center">
-    <div className="border-2 w-[40vw] h-auto rounded-2xl border-gray-300 p-8 text-white lg:w-[20vw] lg:h-auto">
+  <div className="h-screen w-full flex justify-center items-center bg-cover bg-center" style={ {backgroundImage:" url(/images/renthouse.jpg)"}}>
+    <div className="border-2 w-[40vw] h-[22vw] rounded-2xl border-gray-300 p-8 text-white lg:w-[20vw] lg:backdrop-blur-2xl">
       <div className="heading text-center">
         <h2>Login Here!</h2>
         <p className={`text-red-500 transition-all duration-700 ease-in-out ${message ? "opacity-100" : "opacity-0"}`}>{message}</p>

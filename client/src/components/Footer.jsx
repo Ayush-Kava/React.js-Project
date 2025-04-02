@@ -13,21 +13,21 @@ function Footer() {
     <div className=" text-3xl p-10 text-[1.2vw] text-[#28304b]">
       <h1 className=" font-bold text-[1.3vw] text-gray-900 ">Quick link</h1>
       <div className="links flex flex-col gap-3 mt-5">
-        <Link to="#">Home</Link>
-        <Link to="#">About</Link>
-        <Link to="#">Contact</Link>
+        <Link to="#" className=" hover:text-[#0f1320]">Home</Link>
+        <Link to="#"className=" hover:text-[#0f1320]">About</Link>
+        <Link to="#" className=" hover:text-[#0f1320]">Contact</Link>
       </div>
     </div>
     <div className=" p-10">
       <h1 className=" font-bold text-[1.3vw] text-gray-900 ">Follows us</h1>
       <div className="tags flex flex-row gap-3 mt-4">
-        <a href="#">
+        <a href="#" className=" hover:text-[#28304b]">
           <i class="fa-brands fa-facebook text-xl"></i>
         </a>
-        <a href="#">
+        <a href="#" className=" hover:text-[#28304b]">
           <i class="fa-brands fa-twitter text-xl"></i>
         </a>
-        <a href="#">
+        <a href="#" className=" hover:text-[#28304b]">
           <i class="fa-brands fa-instagram text-xl"></i>
         </a>
       </div>
