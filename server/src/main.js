@@ -9,7 +9,7 @@ const routes = require("../routes/index")
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors({ credentials: true, origin: "https://your-frontend.onrender.com"}));
+app.use(cors({ credentials: true, origin: "https://react-js-project-static.onrender.com"}));
 app.use(cookieParser()); 
 app.use(express.urlencoded({ extended: true })); 
 app.use("/",routes);
