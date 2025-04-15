@@ -25,7 +25,7 @@ router.post("/login", async (req, res) => {
 
       const token = jwt.sign({userId: user._id}, SECRET_KEY, {expiresIn: "1d"});
       console.log(token);
-      res.cookie("token", token, {httpOnly: true,secure: false}).json({success: true});
+      res.cookie("token", token, {httpOnly: true,secure: true, sameSite: "None",}).json({success: true});
       // res.json({success: true});
 
     } 
