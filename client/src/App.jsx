@@ -19,7 +19,8 @@ function App() {
 
   return (<Router>
     <Routes>
-      <Route path="/" element={<Home />}/>
+      <Route path="/" element={<Login />}/>
+      <Route path="/home" element={<Home />}/>
       <Route path="/property/:id" element={<PropertyDetail /> } />
       <Route path="/login" element={<Login />}/>
       <Route path="/register" element={<Register />}/>

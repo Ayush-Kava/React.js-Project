@@ -43,7 +43,7 @@ function PropertyCard({ property }) {
   };
 
   return (
-    <div className="grid grid-cols-3 min-h-screen" style={{ gridTemplateColumns: "0.7fr 2fr 0.7fr" }}>
+    <div className="grid grid-cols-3 min-h-screen" style={{ gridTemplateColumns: "0.7fr 2.5fr 0.7fr" }}>
       <div ></div>
       <div className=" p-10">
         <div className="imageContainer relative rounded-4xl overflow-hidden h-[30vw]">

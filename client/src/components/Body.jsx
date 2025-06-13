@@ -43,7 +43,7 @@ function Body({searchQuery}) {
     }}>
     <div className="min-h-screen w-full backdrop-blur-sm flex felx-col justify-center">
       <div className="container top-0 w-full min-h-screen grid-cols-1 md:grid md:grid-cols-3 p-5" style={{
-          gridTemplateColumns: "0.7fr 4fr 0.7fr"
+          gridTemplateColumns: "0.7fr 3fr 0.7fr"
         }}>
         <div></div>
         <div>

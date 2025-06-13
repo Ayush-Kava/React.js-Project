@@ -17,7 +17,7 @@ function Login() {
             const response = await api.post("/auth/login", { email, password});
             console.log("Response:", response.data);
             if (response.data.success) { 
-              navigate("/");
+              navigate("/home");
           } else {
               setMessage(response.data.message);
           }
@@ -37,12 +37,12 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <div className="content flex flex-col mt-3">
           <label htmlFor="email">Email :</label>
-          <input type="email" name="email" value={email} required className="bg-gray-300 opacity-80 rounded text-black px-2 " onChange={(e) => setEmail(e.target.value)}  placeholder="Enter the Email"/>
+          <input type="email" name="email" value={email} required className="bg-gray-300 opacity-80 rounded text-black px-2 py-1 " onChange={(e) => setEmail(e.target.value)}  placeholder="Enter the Email"/>
 
           <label htmlFor="password" className="mt-3">
             Password :
           </label>
-          <input type="password" name="password" value={password} required className="bg-gray-300 opacity-80 rounded text-black px-2" onChange={(e) => setPassword(e.target.value)}  placeholder="Enter the password"/>
+          <input type="password" name="password" value={password} required className="bg-gray-300 opacity-80 rounded text-black px-2 py-1" onChange={(e) => setPassword(e.target.value)}  placeholder="Enter the password"/>
 
           <button type="submit" className=" cursor-pointer bg-gray-300 text-black w-20 px-4 py-1 rounded-2xl mt-5 hover:bg-neutral-800 hover:text-white border transition-all duration-599">Submit</button>
           
