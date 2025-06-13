@@ -9,24 +9,7 @@ const routes = require("../routes/index")
 dotenv.config();
 const app = express();
 app.use(express.json());
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://react-js-project-static.onrender.com",
-  "https://react-js-project-x123.onrender.com"   // <— add this
-];
-app.use(cors({
-  origin(origin, callback) {
-    if (!origin) return callback(null, true);           // allow curl/Postman
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    callback(new Error(`CORS policy violation: ${origin} not allowed`));
-  },
-  credentials: true,
-}));
-
-
+app.use(cors({ credentials: true, origin: "https://react-js-project-static.onrender.com"}));
 app.use(cookieParser()); 
 app.use(express.urlencoded({ extended: true })); 
 app.use("/",routes);

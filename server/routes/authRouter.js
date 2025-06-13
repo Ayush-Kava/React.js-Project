@@ -47,6 +47,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
+  console.log("Logout request received");
   res.clearCookie("token").json({message: "Logged out successfully!"});
 });
 
