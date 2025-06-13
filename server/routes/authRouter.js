@@ -48,7 +48,15 @@ router.post("/register", async (req, res) => {
 
 router.post("/logout", (req, res) => {
   console.log("Logout request received");
-  res.clearCookie("token").json({message: "Logged out successfully!"});
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "none",
+    path: "/",       // match whatever you used when setting it
+  });
+  return res
+    .status(200)
+    .json({ message: "Logged out successfully!" });
 });
 
 module.exports = router;
