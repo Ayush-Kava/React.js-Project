@@ -62,8 +62,7 @@ function Body({searchQuery}) {
                 ? ("")
                 : (<span className="text-amber-200 text-2xl">
                   {" "}
-                  Page {page}
-                  of {totalPages}
+                  Page {page} of {totalPages}
                 </span>)
             }
 
